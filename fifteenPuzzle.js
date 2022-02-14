@@ -33,11 +33,11 @@ const stringify = require('stringify');
 
 let tiles = [];
 let shuffledTiles = [];
-const finalTiles = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, ""];
+const finalTiles = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, " "];
 let move = "";
 
 const initTiles = () => {
-  tiles = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, ""];
+  tiles = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, " "];
   for (let i = tiles.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * i);
     let k = tiles[i];
@@ -59,16 +59,8 @@ const printState = () => {
 printState();
 
 let currTiles = shuffledTiles.join();
-const isFinalState = () => {
-  if (JSON.stringify(currTiles) === JSON.stringify(finalTiles))
-  {
-    return true;
-  }
-  else
-  {
-    return false;
-  }
-}
+const isFinalState = () => (JSON.stringify(currTiles) === JSON.stringify(finalTiles));
+
 
 console.log(isFinalState());
 //console.log(currTiles);
@@ -77,15 +69,16 @@ console.log(isFinalState());
 
 
 
-// const checkBlankIndex = () => {
-//   for (let i = 0; i <= currTiles.length; i++) {
-//     if (currTiles[i] === ""){
-//       blankIndex = i;
-//     } 
-//   }
-//   console.log(blankIndex);
-// }
+const checkBlankIndex = () => {
+  for (let i = 0; i <= currTiles.length; i++) {
+    if (currTiles[i] === " "){
+      blankIndex = i;
+    } 
+  }
+  console.log(blankIndex);
+}
 
+checkBlankIndex();
 
 
 
